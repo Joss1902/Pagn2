@@ -11,6 +11,7 @@ body {
     line-height: 1.6;
     background-color: #f5e1ff; /* Fondo suave */
     color: #333;
+
 }
 
 .container {
@@ -136,10 +137,11 @@ h2 {
 
 .flexbox1
 {
+
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    height: 100vh;
+    height: 50vh;
     color: #5a0983;
     flex-shrink: 1px;
 }
@@ -165,9 +167,32 @@ h2 {
     border: 2px solid black;
     border-radius: 20px;
 }
+.contenedor-portada {
+  position: relative; /* Establece el contexto de posicionamiento para los elementos hijos */
+  display: inline-block; /* Evita que el contenedor ocupe todo el ancho */
+  text-align: center; /* Centra el texto dentro del contenedor si es necesario */
+}
 
+.imagen-fondo {
+  width: 100%; /* Asegura que la imagen ocupe todo el ancho del contenedor */
+  height: auto;
+  display: block; /* Elimina el espacio extra debajo de la imagen */
+}
 
-
+.texto-encima {
+  position: absolute; /* Permite posicionar el texto sobre la imagen */
+  top: 50%; /* Mueve el texto al centro verticalmente */
+  left: 50%; /* Mueve el texto al centro horizontalmente */
+  transform: translate(-50%, -50%); /* Ajusta el texto para centrarlo perfectamente */
+  color: white; /* Define el color del texto */
+  font-size: 2em; /* Ajusta el tamaño de la fuente */
+  text-shadow: 3px 2px 4px rgba(0, 0, 0, 0.5); /* Añade una sombra para que el texto sea más legible */
+  line-height: 1.2;
+}
+.subtitulo_portada
+{
+font-size: 0.8em !important;
+}
 
 
 
@@ -232,45 +257,5 @@ h2 {
         display: none; /* Desactivar hover en móvil */
     }
 
-    /* --- RESPONSIVIDAD DE TABLAS --- */
-    .data-table {
-        min-width: 100%; /* Usa todo el ancho disponible */
-        display: block; /* La tabla ya no es una tabla real a ojos del navegador */
-    }
-
-    .data-table thead {
-        display: none; /* Oculta la cabecera en móvil */
-    }
-
-    .data-table, .data-table tbody, .data-table tr, .data-table td {
-        display: block; /* Convierte todos los elementos de la tabla a bloques */
-    }
-
-    .data-table tr {
-        margin-bottom: 15px;
-        border: 1px solid #ccc;
-        border-radius: 4px;
-        padding: 10px;
-    }
-
-    .data-table td {
-        text-align: right;
-        padding-left: 50%; /* Espacio para la etiqueta */
-        text-align: right;
-        border: none;
-        border-bottom: 1px dotted #eee;
-    }
-    
-    .data-table td:last-child {
-        border-bottom: 0;
-    }
-
-    .data-table td::before {
-        display: block; /* Muestra la etiqueta */
-        position: absolute;
-        left: 10px;
-        width: 45%;
-        text-align: left;
-    }
 
 }
