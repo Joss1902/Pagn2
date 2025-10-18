@@ -1,0 +1,270 @@
+/* RESET BÁSICO */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    background-color: #f4f7f6; /* Fondo suave */
+    color: #333;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 0 20px;
+}
+
+/* --- ESTILOS DEL ENCABEZADO Y MENÚ --- */
+.header {
+    background-color: #2c3e50; /* Azul oscuro */
+    color: white;
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.logo {
+    font-size: 1.8em;
+    font-weight: bold;
+}
+
+.nav-list {
+    list-style: none;
+    display: flex;
+}
+
+.nav-list li {
+    padding: 0 15px;
+}
+
+.nav-list a {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    padding: 10px 0;
+    display: block;
+    transition: color 0.3s;
+}
+
+.nav-list a:hover {
+    color: #3498db; /* Azul claro en hover */
+}
+
+/* MENÚ DESPLEGABLE (Dropdown) */
+.dropdown {
+    position: relative;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #34495e; /* Un tono más oscuro */
+    min-width: 160px;
+    z-index: 1;
+    list-style: none;
+    border-radius: 4px;
+    overflow: hidden;
+    box-shadow: 0 8px 16px 0px rgba(0,0,0,0.2);
+    top: 100%; /* Aparece debajo del botón */
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown-content a {
+    color: white;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {
+    background-color: #2c3e50; /* Oscurece al pasar el ratón */
+    color: #3498db;
+}
+
+/* Botón de menú móvil, oculto por defecto */
+.menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 2em;
+    cursor: pointer;
+}
+
+/* --- ESTILOS DE TABLAS --- */
+section {
+    background-color: white;
+    padding: 30px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+h2 {
+    color: #2980b9;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #ecf0f1;
+    padding-bottom: 10px;
+}
+
+.table-container {
+    overflow-x: auto; /* Permite desplazamiento horizontal en pantallas muy pequeñas */
+}
+
+.data-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    font-size: 1em;
+    min-width: 600px; /* Asegura un ancho mínimo en escritorio */
+}
+
+.data-table thead tr {
+    background-color: #3498db; /* Azul claro para la cabecera */
+    color: white;
+    text-align: left;
+}
+
+.data-table th, .data-table td {
+    padding: 12px 15px;
+}
+
+.data-table tbody tr {
+    border-bottom: 1px solid #dddddd;
+    transition: background-color 0.3s;
+}
+
+.data-table tbody tr:nth-of-type(even) {
+    background-color: #f3f3f3; /* Rayado para mejor legibilidad */
+}
+
+.data-table tbody tr:last-of-type {
+    border-bottom: 2px solid #3498db;
+}
+
+.data-table tbody tr:hover {
+    background-color: #e8f6ff; /* Resaltar al pasar el ratón */
+}
+
+/* Ocultar etiquetas de datos en escritorio */
+.data-table td[data-label] {
+    position: relative;
+}
+
+.data-table td::before {
+    content: attr(data-label); /* Usa el atributo data-label como etiqueta */
+    font-weight: bold;
+    display: none; /* Oculto por defecto en escritorio */
+}
+
+/* --- ESTILOS DEL PIE DE PÁGINA --- */
+.footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 15px 0;
+    font-size: 0.9em;
+}
+
+/* ==================================== */
+/* RESPONSIVIDAD (Media Query) */
+/* ==================================== */
+
+@media (max-width: 768px) {
+    
+    /* Mostrar botón de menú */
+    .menu-toggle {
+        display: block;
+    }
+    
+    /* Menú en móvil */
+    .nav-list {
+        flex-direction: column;
+        width: 100%;
+        position: absolute;
+        top: 60px; /* Debajo del header */
+        left: 0;
+        background-color: #2c3e50;
+        border-top: 1px solid #34495e;
+        display: none; /* Oculto por defecto */
+        transition: transform 0.3s ease-in-out;
+    }
+
+    .nav-list.active {
+        display: flex; /* Mostrar cuando tenga la clase 'active' */
+    }
+
+    .nav-list li {
+        padding: 0;
+        border-bottom: 1px solid #34495e;
+        text-align: center;
+    }
+
+    /* Menú desplegable en móvil */
+    .dropdown {
+        width: 100%;
+    }
+
+    .dropdown-content {
+        position: static; /* Cambia a flujo normal */
+        min-width: 100%;
+        background-color: #34495e;
+        border-radius: 0;
+        box-shadow: none;
+    }
+    
+    .dropdown:hover .dropdown-content {
+        display: none; /* Desactivar hover en móvil */
+    }
+
+    /* --- RESPONSIVIDAD DE TABLAS --- */
+    .data-table {
+        min-width: 100%; /* Usa todo el ancho disponible */
+        display: block; /* La tabla ya no es una tabla real a ojos del navegador */
+    }
+
+    .data-table thead {
+        display: none; /* Oculta la cabecera en móvil */
+    }
+
+    .data-table, .data-table tbody, .data-table tr, .data-table td {
+        display: block; /* Convierte todos los elementos de la tabla a bloques */
+    }
+
+    .data-table tr {
+        margin-bottom: 15px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        padding: 10px;
+    }
+
+    .data-table td {
+        text-align: right;
+        padding-left: 50%; /* Espacio para la etiqueta */
+        text-align: right;
+        border: none;
+        border-bottom: 1px dotted #eee;
+    }
+    
+    .data-table td:last-child {
+        border-bottom: 0;
+    }
+
+    .data-table td::before {
+        display: block; /* Muestra la etiqueta */
+        position: absolute;
+        left: 10px;
+        width: 45%;
+        text-align: left;
+    }
+
+}

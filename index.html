@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Responsiva con Tablas y Menú Desplegable</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <header class="header">
+        <h1 class="logo">Mi Web✨</h1>
+        <button class="menu-toggle" aria-label="Abrir menú" id="menuToggle">☰</button>
+        
+        <nav class="nav">
+            <ul class="nav-list" id="navList">
+                <li><a href="#inicio">Inicio</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropbtn">Productos ▼</a>
+                    <ul class="dropdown-content">
+                        <li><a href="#">Producto A</a></li>
+                        <li><a href="#">Producto B</a></li>
+                        <li><a href="#">Producto C</a></li>
+                    </ul>
+                </li>
+                <li><a href="#servicios">Servicios</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="container">
+        <section id="inicio">
+            <h2>Bienvenido</h2>
+            <p>Esta es una página de ejemplo con HTML5, CSS externo y diseño responsivo.</p>
+        </section>
+        
+        <section id="tablas">
+            <h2>Tabla de Datos Importantes</h2>
+            <div class="table-container">
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Categoría</th>
+                            <th>Valor Actual</th>
+                            <th>Valor Anterior</th>
+                            <th>Estado</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td data-label="Categoría">Ingresos</td>
+                            <td data-label="Valor Actual">$15,000</td>
+                            <td data-label="Valor Anterior">$14,500</td>
+                            <td data-label="Estado">↑ Alto</td>
+                        </tr>
+                        <tr>
+                            <td data-label="Categoría">Gastos</td>
+                            <td data-label="Valor Actual">$8,000</td>
+                            <td data-label="Valor Anterior">$8,200</td>
+                            <td data-label="Estado">↓ Medio</td>
+                        </tr>
+                        <tr>
+                            <td data-label="Categoría">Beneficio</td>
+                            <td data-label="Valor Actual">$7,000</td>
+                            <td data-label="Valor Anterior">$6,300</td>
+                            <td data-label="Estado">↑ Alto</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p>&copy; 2025 Web Ejemplo. Todos los derechos reservados.</p>
+    </footer>
+
+    <script src="script.js" defer></script>
+</body>
+</html>
